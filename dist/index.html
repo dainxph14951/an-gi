@@ -5,9 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta
       name="description"
-      content="Chọn món ngẫu nhiên kiểu mở hòm game cho câu hỏi trưa nay ăn gì."
+      content="Hộp chọn món riêng cho nhân viên VSII đi OS."
     />
-    <title>Trưa nay ăn gì?</title>
+    <title>VSII OS Lunch Box</title>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -19,8 +19,8 @@
   <body>
     <header class="site-header">
       <a class="brand" href="#top" aria-label="Trang chủ">
-        <span class="brand-mark">?</span>
-        <span>Trưa nay ăn gì</span>
+        <span class="brand-mark">VS</span>
+        <span>VSII OS Lunch Box</span>
       </a>
       <nav aria-label="Điều hướng chính">
         <a href="#case">Mở két</a>
@@ -32,12 +32,15 @@
     <main id="top">
       <section class="hero-section" aria-labelledby="page-title">
         <div class="hero-copy">
-          <p class="eyebrow">Case opening edition</p>
-          <h1 id="page-title">Không biết ăn gì? Mở két ra món ngay.</h1>
+          <p class="eyebrow">Dành cho nhân viên VSII đi OS</p>
+          <h1 id="page-title">Đi OS cũng phải ăn trưa cho tử tế.</h1>
           <p>
-            Chọn nhóm món, đặt ngân sách, rồi để dải món chạy ngang chốt hộ bữa
-            trưa. Hợp cho dân văn phòng, nhóm bạn và mọi cuộc tranh luận
-            "ăn gì cũng được".
+            Một hộp chọn món riêng cho anh em VSII đang onsite: lọc theo ngân
+            sách, giữ lại quán hợp gu, thêm món ruột và để hệ thống chốt hộ khi
+            cả nhóm bắt đầu câu "ăn gì cũng được".
+          </p>
+          <p class="private-note">
+            Danh sách bạn tick hoặc tự thêm được lưu trên chính trình duyệt này.
           </p>
           <div class="hero-actions">
             <a class="primary-link" href="#case">Khai mở két</a>
@@ -53,11 +56,15 @@
         </figure>
       </section>
 
-      <section id="case" class="case-shell" aria-label="Máy chọn món ngẫu nhiên">
+      <section
+        id="case"
+        class="case-shell"
+        aria-label="Máy chọn món ngẫu nhiên"
+      >
         <div class="case-topline">
           <div>
             <p class="section-kicker">Hộp món hôm nay</p>
-            <h2>Kéo băng món, dừng đâu ăn đó.</h2>
+            <h2>Chốt món nhanh cho ca OS hôm nay.</h2>
           </div>
           <div class="case-stats" aria-live="polite">
             <span id="pool-count">0 món khả dụng</span>
@@ -74,7 +81,9 @@
           <button id="open-case" class="open-button" type="button">
             <span>Khai mở két</span>
           </button>
-          <button id="reroll" class="quiet-button" type="button">Quay lại</button>
+          <button id="reroll" class="quiet-button" type="button">
+            Quay lại
+          </button>
         </div>
       </section>
 
@@ -89,29 +98,56 @@
               <p id="result-note">Nhấn "Khai mở két" để nhận gợi ý đầu tiên.</p>
             </div>
           </div>
-          <a id="map-link" class="map-link" href="#" target="_blank" rel="noreferrer">
+          <a
+            id="map-link"
+            class="map-link"
+            href="#"
+            target="_blank"
+            rel="noreferrer"
+          >
             Tìm quán gần tôi
           </a>
         </div>
       </section>
 
-      <section id="customize" class="customize-grid" aria-label="Tùy chỉnh món ăn">
+      <section
+        id="customize"
+        class="customize-grid"
+        aria-label="Tùy chỉnh món ăn"
+      >
         <div class="panel">
           <p class="section-kicker">Bộ lọc</p>
-          <h2>Chọn mood bữa ăn</h2>
+          <h2>Chọn mood của team</h2>
           <div class="chip-group" id="category-filters" aria-label="Nhóm món">
-            <button class="chip active" type="button" data-category="all">Tất cả</button>
-            <button class="chip" type="button" data-category="meal">Bữa chính</button>
-            <button class="chip" type="button" data-category="snack">Ăn vặt</button>
-            <button class="chip" type="button" data-category="drink">Đồ uống</button>
-            <button class="chip" type="button" data-category="group">Đi nhóm</button>
+            <button class="chip active" type="button" data-category="all">
+              Tất cả
+            </button>
+            <button class="chip" type="button" data-category="meal">
+              Bữa chính
+            </button>
+            <button class="chip" type="button" data-category="snack">
+              Ăn vặt
+            </button>
+            <button class="chip" type="button" data-category="drink">
+              Đồ uống
+            </button>
+            <button class="chip" type="button" data-category="group">
+              Đi nhóm
+            </button>
           </div>
 
           <label class="budget-control" for="budget">
             <span>Ngân sách tối đa</span>
             <strong><span id="budget-value">100</span>k</strong>
           </label>
-          <input id="budget" type="range" min="30" max="250" step="10" value="100" />
+          <input
+            id="budget"
+            type="range"
+            min="30"
+            max="250"
+            step="10"
+            value="100"
+          />
         </div>
 
         <div class="panel">
@@ -127,7 +163,7 @@
             <button type="submit">Thêm</button>
           </form>
           <p class="helper-text">
-            Món tự thêm sẽ được tính là bữa chính, giá mặc định 70k.
+            Món tự thêm chỉ lưu trên máy này, giá mặc định 70k.
           </p>
         </div>
       </section>

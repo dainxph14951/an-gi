@@ -5,14 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta
       name="description"
-      content="Vòng quay chọn món ăn Việt Nam với 12 lựa chọn hấp dẫn."
+      content="Chọn món ngẫu nhiên kiểu mở hòm game cho câu hỏi trưa nay ăn gì."
     />
-    <link
-      rel="icon"
-      type="image/svg+xml"
-      href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='16' fill='%23f97316'/%3E%3Cpath d='M18 21c8-8 20-8 28 0 8 8 8 20 0 28s-20 8-28 0-8-20 0-28Z' fill='%23fff7ed'/%3E%3Cpath d='M23 32h18M32 23v18' stroke='%23dc2626' stroke-width='5' stroke-linecap='round'/%3E%3C/svg%3E"
-    />
-    <title>Vòng quay hôm nay ăn gì?</title>
+    <title>Trưa nay ăn gì?</title>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -22,138 +17,129 @@
     <link rel="stylesheet" href="./styles.css" />
   </head>
   <body>
-    <main class="app-shell">
-      <section class="hero-panel" aria-labelledby="page-title">
-        <div class="intro">
-          <div class="intro-content">
-            <p class="eyebrow">Cuối tuần ăn rì?</p>
-            <p class="intro-copy">12 món quen miệng đối tượng</p>
+    <header class="site-header">
+      <a class="brand" href="#top" aria-label="Trang chủ">
+        <span class="brand-mark">?</span>
+        <span>Trưa nay ăn gì</span>
+      </a>
+      <nav aria-label="Điều hướng chính">
+        <a href="#case">Mở két</a>
+        <a href="#customize">Tùy chỉnh</a>
+        <a href="#menu">Kho món</a>
+      </nav>
+    </header>
+
+    <main id="top">
+      <section class="hero-section" aria-labelledby="page-title">
+        <div class="hero-copy">
+          <p class="eyebrow">Case opening edition</p>
+          <h1 id="page-title">Không biết ăn gì? Mở két ra món ngay.</h1>
+          <p>
+            Chọn nhóm món, đặt ngân sách, rồi để dải món chạy ngang chốt hộ bữa
+            trưa. Hợp cho dân văn phòng, nhóm bạn và mọi cuộc tranh luận
+            "ăn gì cũng được".
+          </p>
+          <div class="hero-actions">
+            <a class="primary-link" href="#case">Khai mở két</a>
+            <a class="secondary-link" href="#customize">Chỉnh danh sách</a>
           </div>
-          <figure class="hero-food">
-            <img
-              src="./assets/vietnamese-food-spread.png"
-              alt="Bàn ăn món Việt với vịt quay, gà nướng, phở, gỏi cuốn, cơm tấm và bánh xèo"
-            />
-          </figure>
         </div>
 
-        <div class="result-card" aria-live="polite">
-          <span class="result-label">Món được chọn</span>
+        <figure class="hero-art">
+          <img
+            src="./assets/vietnamese-food-spread.png"
+            alt="Bàn ăn món Việt nhiều lựa chọn"
+          />
+        </figure>
+      </section>
+
+      <section id="case" class="case-shell" aria-label="Máy chọn món ngẫu nhiên">
+        <div class="case-topline">
+          <div>
+            <p class="section-kicker">Hộp món hôm nay</p>
+            <h2>Kéo băng món, dừng đâu ăn đó.</h2>
+          </div>
+          <div class="case-stats" aria-live="polite">
+            <span id="pool-count">0 món khả dụng</span>
+            <span id="budget-label">Dưới 100k</span>
+          </div>
+        </div>
+
+        <div class="case-window">
+          <div class="winner-line" aria-hidden="true"></div>
+          <div id="reel" class="reel" aria-live="off"></div>
+        </div>
+
+        <div class="case-controls">
+          <button id="open-case" class="open-button" type="button">
+            <span>Khai mở két</span>
+          </button>
+          <button id="reroll" class="quiet-button" type="button">Quay lại</button>
+        </div>
+      </section>
+
+      <section class="result-section" aria-live="polite">
+        <div class="result-card">
+          <span id="result-rarity" class="rarity-pill common">Sẵn sàng</span>
           <div class="result-main">
-            <span id="result-emoji" class="result-emoji">🍽️</span>
+            <span id="result-icon" class="result-icon">🍱</span>
             <div>
-              <strong id="result-name">Sẵn sàng quay</strong>
-              <p id="result-note">Nhấn nút quay để chọn món cho hôm nay.</p>
+              <p class="result-label">Món được chọn</p>
+              <strong id="result-name">Chưa mở két</strong>
+              <p id="result-note">Nhấn "Khai mở két" để nhận gợi ý đầu tiên.</p>
             </div>
           </div>
+          <a id="map-link" class="map-link" href="#" target="_blank" rel="noreferrer">
+            Tìm quán gần tôi
+          </a>
         </div>
       </section>
 
-      <section class="wheel-layout" aria-label="Vòng quay chọn món ăn">
-        <div class="wheel-stage">
-          <div class="pointer" aria-hidden="true"></div>
-          <div id="wheel" class="wheel">
-            <div class="wheel-center">
-              <span>Chọn món</span>
-            </div>
+      <section id="customize" class="customize-grid" aria-label="Tùy chỉnh món ăn">
+        <div class="panel">
+          <p class="section-kicker">Bộ lọc</p>
+          <h2>Chọn mood bữa ăn</h2>
+          <div class="chip-group" id="category-filters" aria-label="Nhóm món">
+            <button class="chip active" type="button" data-category="all">Tất cả</button>
+            <button class="chip" type="button" data-category="meal">Bữa chính</button>
+            <button class="chip" type="button" data-category="snack">Ăn vặt</button>
+            <button class="chip" type="button" data-category="drink">Đồ uống</button>
+            <button class="chip" type="button" data-category="group">Đi nhóm</button>
           </div>
+
+          <label class="budget-control" for="budget">
+            <span>Ngân sách tối đa</span>
+            <strong><span id="budget-value">100</span>k</strong>
+          </label>
+          <input id="budget" type="range" min="30" max="250" step="10" value="100" />
         </div>
 
-        <div class="control-panel">
-          <button id="spin-button" class="spin-button" type="button">
-            <span>Quay ngay</span>
-          </button>
-          <button id="shuffle-button" class="ghost-button" type="button">
-            Đổi thứ tự
-          </button>
+        <div class="panel">
+          <p class="section-kicker">Món tự thêm</p>
+          <h2>Thêm món bạn thích</h2>
+          <form id="custom-form" class="custom-form">
+            <input
+              id="custom-dish"
+              type="text"
+              autocomplete="off"
+              placeholder="Ví dụ: bún bò, sushi, trà sữa..."
+            />
+            <button type="submit">Thêm</button>
+          </form>
+          <p class="helper-text">
+            Món tự thêm sẽ được tính là bữa chính, giá mặc định 70k.
+          </p>
         </div>
       </section>
 
-      <section class="dish-grid" aria-label="Danh sách 12 món ăn">
-        <article class="dish-card">
-          <span>🦆</span>
+      <section id="menu" class="menu-section" aria-label="Kho món có sẵn">
+        <div class="section-heading">
           <div>
-            <h2>Vịt quay</h2>
-            <p>Địa chỉ:</p>
+            <p class="section-kicker">Kho món</p>
+            <h2>Tick món muốn giữ trong két</h2>
           </div>
-        </article>
-        <article class="dish-card">
-          <span>🍗</span>
-          <div>
-            <h2>Gà nướng</h2>
-            <p>Địa chỉ:</p>
-          </div>
-        </article>
-        <article class="dish-card">
-          <span>🍜</span>
-          <div>
-            <h2>Bún riêu</h2>
-            <p>Địa chỉ:</p>
-          </div>
-        </article>
-        <article class="dish-card">
-          <span>🥢</span>
-          <div>
-            <h2>Bún đậu</h2>
-            <p>Địa chỉ:</p>
-          </div>
-        </article>
-        <article class="dish-card">
-          <span>🍢</span>
-          <div>
-            <h2>Nem nướng</h2>
-            <p>Địa chỉ:</p>
-          </div>
-        </article>
-        <article class="dish-card">
-          <span>🍚</span>
-          <div>
-            <h2>Cơm tấm</h2>
-            <p>Địa chỉ:</p>
-          </div>
-        </article>
-        <article class="dish-card">
-          <span>🥖</span>
-          <div>
-            <h2>Bánh mì</h2>
-            <p>Địa chỉ:</p>
-          </div>
-        </article>
-        <article class="dish-card">
-          <span>🥘</span>
-          <div>
-            <h2>Lẩu thái</h2>
-            <p>Địa chỉ:</p>
-          </div>
-        </article>
-        <article class="dish-card">
-          <span>🍲</span>
-          <div>
-            <h2>Phở bò</h2>
-            <p>Địa chỉ:</p>
-          </div>
-        </article>
-        <article class="dish-card">
-          <span>🥗</span>
-          <div>
-            <h2>Gỏi cuốn</h2>
-            <p>Địa chỉ:</p>
-          </div>
-        </article>
-        <article class="dish-card">
-          <span>🍛</span>
-          <div>
-            <h2>Mì Quảng</h2>
-            <p>Địa chỉ:</p>
-          </div>
-        </article>
-        <article class="dish-card">
-          <span>🥞</span>
-          <div>
-            <h2>Bánh xèo</h2>
-            <p>Địa chỉ:</p>
-          </div>
-        </article>
+        </div>
+        <div id="dish-list" class="dish-list"></div>
       </section>
     </main>
 
